@@ -16,6 +16,7 @@
 | 💃 动画系统 | [LyraAnimationSystem_DeepDive](./LyraAnimationSystem_DeepDive.md) | 动画蓝图、LinkedAnimLayer、距离匹配 |
 | 🧩 GameFeature 插件体系 | [LyraGameFeatureSystem_DeepDive](./LyraGameFeatureSystem_DeepDive.md) | GameFeatureAction、插件加载/卸载、功能注入 |
 | 📦 模块化游戏框架 | [LyraModularGameFeature_DeepDive](./LyraModularGameFeature_DeepDive.md) | ModularGameplayActors、组件化设计 |
+| 🎯 Experience 体验系统 | [LyraExperienceSystem_DeepDive](./LyraExperienceSystem_DeepDive.md) | 体验定义、加载状态机、优先级回调、数据驱动游戏规则 |
 | 🌐 网络复制 | [LyraReplicationGraph_DeepDive](./LyraReplicationGraph_DeepDive.md) | ReplicationGraph优化、FastSharedReplication |
 
 ---
@@ -44,7 +45,7 @@ Lyra 的核心设计哲学是**高度模块化**，主要体现在：
 - **组件化设计** — 角色功能通过组件（`LyraPawnExtensionComponent`、`LyraHeroComponent`、`LyraHealthComponent`）组合，而非继承
 - **Game Features 插件** — 游戏模式（ShooterCore、TopDownArena 等）作为独立插件存在，可动态加载/卸载
 
-### 2.2 Experience 系统（体验系统）
+### 2.2 Experience 系统（体验系统） 📖 [深度分析](./LyraExperienceSystem_DeepDive.md)
 
 这是 Lyra 最具创新性的架构设计：
 
