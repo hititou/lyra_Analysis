@@ -1,5 +1,25 @@
 # Lyra Starter Game 工程源码分析报告
 
+## 📑 子系统深度分析文档导航
+
+| 子系统 | 深度分析文档 | 说明 |
+|--------|-------------|------|
+| 🎮 角色系统 | [LyraCharacterSystem_DeepDive](./LyraCharacterSystem_DeepDive.md) | 角色架构、InitState状态机、Pawn组件协调、死亡流程、网络同步 |
+| ⚔️ 技能系统 (GAS) | [LyraAbilitySystem_DeepDive](./LyraAbilitySystem_DeepDive.md) | AbilitySystemComponent、GameplayAbility、GameplayEffect、AttributeSet |
+| 🔫 武器系统 | [LyraWeaponSystem_DeepDive](./LyraWeaponSystem_DeepDive.md) | 远程武器射击、弹道计算、扩散模型、命中判定 |
+| 🎒 装备与物品 | [LyraEquipmentInventory_DeepDive](./LyraEquipmentInventory_DeepDive.md) | 装备管理、物品系统、Fragment模式、快捷栏 |
+| 🕹️ 输入系统 | [LyraInputSystem_DeepDive](./LyraInputSystem_DeepDive.md) | Enhanced Input、GameplayTag输入绑定、输入修饰器 |
+| 📷 相机系统 | [LyraCameraSystem_DeepDive](./LyraCameraSystem_DeepDive.md) | 相机模式栈、第三人称相机、穿透避免 |
+| 🏁 游戏阶段 | [LyraGamePhaseSystem_DeepDive](./LyraGamePhaseSystem_DeepDive.md) | GamePhase子系统、阶段技能、Experience加载 |
+| 👥 团队系统 | [LyraTeamSystem_DeepDive](./LyraTeamSystem_DeepDive.md) | 团队子系统、队伍创建、阵营关系 |
+| 🖥️ UI 系统 | [LyraUISystem_DeepDive](./LyraUISystem_DeepDive.md) | CommonUI框架、HUD布局、UIExtension动态注入 |
+| 💃 动画系统 | [LyraAnimationSystem_DeepDive](./LyraAnimationSystem_DeepDive.md) | 动画蓝图、LinkedAnimLayer、距离匹配 |
+| 🧩 GameFeature 插件体系 | [LyraGameFeatureSystem_DeepDive](./LyraGameFeatureSystem_DeepDive.md) | GameFeatureAction、插件加载/卸载、功能注入 |
+| 📦 模块化游戏框架 | [LyraModularGameFeature_DeepDive](./LyraModularGameFeature_DeepDive.md) | ModularGameplayActors、组件化设计 |
+| 🌐 网络复制 | [LyraReplicationGraph_DeepDive](./LyraReplicationGraph_DeepDive.md) | ReplicationGraph优化、FastSharedReplication |
+
+---
+
 ## 一、工程概览
 
 | 项目 | 详情 |
@@ -63,7 +83,7 @@ InitState_Spawned → InitState_DataAvailable → InitState_DataInitialized → 
 
 ## 三、核心模块详解
 
-### 3.1 Character（角色系统）
+### 3.1 Character（角色系统） 📖 [深度分析](./LyraCharacterSystem_DeepDive.md)
 
 | 文件 | 职责 |
 |------|------|
@@ -85,7 +105,7 @@ ALyraCharacter
 └── ULyraCharacterMovementComponent (移动)
 ```
 
-### 3.2 AbilitySystem（技能系统 / GAS）
+### 3.2 AbilitySystem（技能系统 / GAS） 📖 [深度分析](./LyraAbilitySystem_DeepDive.md)
 
 这是项目中最庞大的模块，完整展示了 GAS 的最佳实践：
 
@@ -119,12 +139,12 @@ ALyraCharacter
 - `LyraAbilityCost_ItemTagStack` — 消耗物品 Tag 栈（弹药）
 - `LyraAbilityCost_PlayerTagStack` — 消耗玩家 Tag 栈
 
-**GamePhase（游戏阶段）子系统**：
+**GamePhase（游戏阶段）子系统** 📖 [深度分析](./LyraGamePhaseSystem_DeepDive.md)：
 
 - `ULyraGamePhaseSubsystem` — 管理游戏阶段（如等待、对战、结算），通过 GAS 的 Ability 实现
 - `ULyraGamePhaseAbility` — 阶段技能基类
 
-### 3.3 Weapon（武器系统）
+### 3.3 Weapon（武器系统） 📖 [深度分析](./LyraWeaponSystem_DeepDive.md)
 
 ```
 ULyraWeaponInstance                    → 武器实例基类
@@ -137,7 +157,7 @@ ULyraDamageLogDebuggerComponent        → 伤害日志调试
 
 远程武器的射击实现（`LyraGameplayAbility_RangedWeapon.cpp`，21.6KB）是整个项目中最复杂的单个文件，包含完整的弹道计算、扩散模型和命中判定逻辑。
 
-### 3.4 Equipment & Inventory（装备与物品系统）
+### 3.4 Equipment & Inventory（装备与物品系统） 📖 [深度分析](./LyraEquipmentInventory_DeepDive.md)
 
 **装备系统**：
 
@@ -160,7 +180,7 @@ ULyraDamageLogDebuggerComponent        → 伤害日志调试
 - `InventoryFragment_SetStats` — 属性修改
 - `InventoryFragment_ReticleConfig` — 准星配置
 
-### 3.5 Input（输入系统）
+### 3.5 Input（输入系统） 📖 [深度分析](./LyraInputSystem_DeepDive.md)
 
 基于 **Enhanced Input + GameplayTag** 的输入系统：
 
@@ -169,7 +189,7 @@ ULyraDamageLogDebuggerComponent        → 伤害日志调试
 - `ULyraInputModifiers` — 自定义输入修饰器（灵敏度、瞄准辅助等）
 - `ULyraPlayerMappableKeyProfile` — 玩家按键映射配置
 
-### 3.6 Camera（相机系统）
+### 3.6 Camera（相机系统） 📖 [深度分析](./LyraCameraSystem_DeepDive.md)
 
 - `ULyraCameraComponent` — 相机组件，支持 CameraMode 栈管理
 - `ULyraCameraMode` — 相机模式基类，定义 FOV、视角混合等
@@ -177,7 +197,7 @@ ULyraDamageLogDebuggerComponent        → 伤害日志调试
 - `ULyraPlayerCameraManager` — 自定义 CameraManager
 - `ULyraUICameraManagerComponent` — UI 相机管理
 
-### 3.7 Teams（团队系统）
+### 3.7 Teams（团队系统） 📖 [深度分析](./LyraTeamSystem_DeepDive.md)
 
 - `ULyraTeamSubsystem` — 团队子系统，管理团队创建、查询
 - `ILyraTeamAgentInterface` — 团队代理接口，Character/PlayerState/PlayerController 均实现
@@ -185,7 +205,7 @@ ULyraDamageLogDebuggerComponent        → 伤害日志调试
 - `ULyraTeamDisplayAsset` — 团队外观资产（颜色等）
 - `AsyncAction_ObserveTeam/Colors` — 异步监听团队变化
 
-### 3.8 UI 系统
+### 3.8 UI 系统 📖 [深度分析](./LyraUISystem_DeepDive.md)
 
 基于 **CommonUI** 框架：
 
@@ -213,7 +233,7 @@ ULyraDamageLogDebuggerComponent        → 伤害日志调试
 
 ---
 
-## 四、GameFeature 插件体系
+## 四、GameFeature 插件体系 📖 [深度分析](./LyraGameFeatureSystem_DeepDive.md)
 
 ### 4.1 GameFeatureAction（功能注入动作）
 
@@ -257,7 +277,7 @@ ULyraDamageLogDebuggerComponent        → 伤害日志调试
 
 ## 五、网络与多人游戏
 
-### 5.1 网络复制
+### 5.1 网络复制 📖 [深度分析](./LyraReplicationGraph_DeepDive.md)
 
 - **自定义 ReplicationGraph**（`LyraReplicationGraph.cpp`，41.89KB）— 项目中最大的单文件，实现了完整的复制图优化
 - **FastSharedReplication** — 角色移动数据的高效共享复制
