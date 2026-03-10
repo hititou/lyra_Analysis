@@ -13,7 +13,7 @@
 | 🏁 游戏阶段 | [LyraGamePhaseSystem_DeepDive](./LyraGamePhaseSystem_DeepDive.md) | GamePhase子系统、阶段技能、Experience加载 |
 | 👥 团队系统 | [LyraTeamSystem_DeepDive](./LyraTeamSystem_DeepDive.md) | 团队子系统、队伍创建、阵营关系 |
 | 🖥️ UI 系统 | [LyraUISystem_DeepDive](./LyraUISystem_DeepDive.md) | CommonUI框架、HUD布局、UIExtension动态注入 |
-| 💃 动画系统 | [LyraAnimationSystem_DeepDive](./LyraAnimationSystem_DeepDive.md) | 动画蓝图、LinkedAnimLayer、距离匹配 |
+| 💃 动画系统 | [LyraAnimationSystem_DeepDive](./LyraAnimationSystem_DeepDive.md) [Lyra动画蓝图分层逻辑深度分析](./Lyra动画蓝图分层逻辑深度分析.md)| 动画蓝图、LinkedAnimLayer、距离匹配 |
 | 🧩 GameFeature 插件体系 | [LyraGameFeatureSystem_DeepDive](./LyraGameFeatureSystem_DeepDive.md) | GameFeatureAction、插件加载/卸载、功能注入 |
 | 📦 模块化游戏框架 | [LyraModularGameFeature_DeepDive](./LyraModularGameFeature_DeepDive.md) | ModularGameplayActors、组件化设计 |
 | 🎯 Experience 体验系统 | [LyraExperienceSystem_DeepDive](./LyraExperienceSystem_DeepDive.md) | 体验定义、加载状态机、优先级回调、数据驱动游戏规则 |
