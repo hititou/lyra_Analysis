@@ -18,7 +18,7 @@
 - [3. C++ 核心类详解](#3-c-核心类详解)
   - [3.1 ULyraAnimInstance — 动画实例基类](#31-ulyraaniminstance--动画实例基类)
   - [3.2 FLyraAnimLayerSelectionSet — 动画层选择集](#32-flyraanimlayerselectionset--动画层选择集)
-  - [3.3 FLyraAnimBodyStyleSelectionSet — 身体网格选择集](#33-flyraanim bodystyleselectionset--身体网格选择集)
+  - [3.3 FLyraAnimBodyStyleSelectionSet — 身体网格选择集](#33-flyraanimbodystyleselectionset--身体网格选择集)
   - [3.4 ULyraWeaponInstance — 武器实例](#34-ulyraweaponinstance--武器实例)
 - [4. Cosmetic 外观系统与动画的协作](#4-cosmetic-外观系统与动画的协作)
   - [4.1 CosmeticTag 的产生链路](#41-cosmetictag-的产生链路)
